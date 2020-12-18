@@ -741,7 +741,7 @@ rpc_address: 0.0.0.0
 # be set to 0.0.0.0. If left blank, this will be set to the value of
 # rpc_address. If rpc_address is set to 0.0.0.0, broadcast_rpc_address must
 # be set.
-broadcast_rpc_address: 172.31.37.123   #public ip
+broadcast_rpc_address: 3.25.90.220   #public ip
 
 # enable or disable keepalive on rpc/native connections
 rpc_keepalive: true
