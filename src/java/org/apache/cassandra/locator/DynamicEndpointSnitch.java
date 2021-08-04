@@ -324,17 +324,27 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
         double b1=0.03516749;
         double b2=1.09079195;
         
-        //calculating service time
+        //prediction based replica selection starting
+      
+      //  rtt=lema;
+        
+      //  rs=Math.pow(qema, 3)*sema;
+        
+        
+       // lp=a+b1*rtt+b2*rs;
+        
+       // score=lp+getSeverity(key);
+        //prediction based replica selection ending
+
+
+//c3 start
         rtt=lema;
-        
         rs=Math.pow(qema, 3)*sema;
-        
-        
-        lp=a+b1*rtt+b2*rs;
-        
-        score=lp+getSeverity(key);
+        score=rtt-sema+rs;
+//c3 end
         scores.put(key, score);
         newScores.put(key,score);
+
        //logger.info("Score is: "+score);
     }
 
