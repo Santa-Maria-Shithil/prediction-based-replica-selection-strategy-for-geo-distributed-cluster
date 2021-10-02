@@ -139,7 +139,7 @@ public class Predictor {
 		int qsize=queuesize2.get(key).get();
 	   //	logger.info("decrementing pending job inside predictor");
 		//String data = key.toString() + " " + Integer.toString(qsize) + " " +l + " " + stime+" "+"UPDATEREMOTE"+"\n";
-		String data = key.toString() + " " +l + " " + stime + " " + Integer.toString(qsize) +" "+ "UPDATEREMOTE"+"\n";
+		String data = key.toString() + " " +l + " " + stime + " " + Integer.toString(qsize) +" "+DynamicEndpointSnitch.getSeverity(key)+" "+ "UPDATEREMOTE"+"\n";
 		logger.info(data);
 		l=l-stime;
 		if(latencyEMA.containsKey(key))
