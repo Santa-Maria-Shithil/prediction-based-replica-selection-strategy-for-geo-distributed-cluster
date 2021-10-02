@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Predictor {
+
+	DynamicEndpointSnitch de =new DynamicEndpointSnitch();
 	 private static final double ALPHA = 0.9;
 	private static final ConcurrentHashMap<InetAddressAndPort,AtomicInteger> queuesize =new ConcurrentHashMap<>();
 	private static final HashMap<InetAddressAndPort,Long> servicetime = new HashMap<>();
@@ -70,7 +72,7 @@ public class Predictor {
 		//int qsize=get(key).decrementAndGet();
 	   //	logger.info("decrementing pending job inside predictor");
 		//String data = key.toString() + " " + Integer.toString(qsize) + " " +l + " " + stime+" "+"UPDATELOCAL"+"\n";
-		String data = key.toString() + " " +l + " " + stime + " " + Integer.toString(qsize) +" "+DynamicEndpointSnitch.getSeverity()+" "+"UPDATELOCAL"+"\n";
+		String data = key.toString() + " " +l + " " + stime + " " + Integer.toString(qsize) +" "+de.getSeverity()+" "+"UPDATELOCAL"+"\n";
 		logger.info(data);
 		l=l-stime;
 		if(latencyEMA.containsKey(key))
