@@ -317,7 +317,7 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
         
         
         
-        
+        /*starting of geo-distributed
         
         double score,lp,rs,rtt;
         double a=0.000115844;
@@ -346,7 +346,18 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
       //  newScores.put(key,score);
       //  scores=newScores;
 
-       //logger.info("Score is: "+score);
+       //logger.info("Score is: "+score);*/
+       //ending of geo-distributed
+
+
+        double score,lp;
+        double a=0.000115844;
+        double b1=0.03516749;
+        double b2=1.09079195;
+        lp=a+b1*qema+b2*sema;
+        score=lp+lema+getSeverity(key);
+        scores.put(key, score);
+       logger.info("Score is: "+score);
     }
 
     private void reset()
