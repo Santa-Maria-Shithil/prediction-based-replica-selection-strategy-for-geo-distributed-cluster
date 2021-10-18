@@ -321,8 +321,8 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
         
         double score,lp,rs,rtt;
         double a=0.000115844;
-        double b1=0.03516749;
-        double b2=1.09079195;
+        double b1=1.09079195;
+        double b2=0.03516749;
         
         //prediction based replica selection starting
       
@@ -342,8 +342,9 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
         //rs=Math.pow(qema, 3)*sema;
         //score=rtt-sema+rs;
 //c3 end
-        //scores.put(key, score);
-        //newScores.put(key,score);
+        scores.put(key, score);
+      //  newScores.put(key,score);
+      //  scores=newScores;
 
        //logger.info("Score is: "+score);
     }
