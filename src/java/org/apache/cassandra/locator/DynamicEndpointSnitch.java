@@ -355,7 +355,7 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
         double b1=0.03516749;
         double b2=1.09079195;
         lp=a+b1*qema+b2*sema;
-        score=lp+lema+getSeverity(key);
+        score=lp+getSeverity(key);
         scores.put(key, score);
       // logger.info("Score is: "+score);
     }
