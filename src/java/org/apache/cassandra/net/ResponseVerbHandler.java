@@ -116,7 +116,7 @@ class ResponseVerbHandler implements IVerbHandler
     		}
             long serviceTimeNanos = System.nanoTime()-start;
           //  Predictor.updateMetricesRemote(FBUtilities.getBroadcastAddressAndPort(), latencyNanos, message.verb().toString());
-            Predictor.updateMetrices2(FBUtilities.getBroadcastAddressAndPort(), latencyNanos, serviceTimeNanos,message.verb().toString());
+            //Predictor.updateMetrices2(FBUtilities.getBroadcastAddressAndPort(), latencyNanos, serviceTimeNanos,message.verb().toString());
 	                      
         if (callbackInfo.callback.supportsBackPressure())
         {
