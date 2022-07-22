@@ -273,60 +273,15 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
     {
         if (!StorageService.instance.isGossipActive())
             return;
-     /*   if (!registered)
-        {
-            if (MessagingService.instance() != null)
-            {
-                MessagingService.instance().latencySubscribers.subscribe(this);
-                registered = true;
-            }
-
-        }*/
-        
+            
         HashMap<InetAddressAndPort, Double> newScores = new HashMap<>();
-        
-       /* double maxLatency = 1;
-
-        Map<InetAddressAndPort, Snapshot> snapshots = new HashMap<>(samples.size());
-        for (Map.Entry<InetAddressAndPort, ExponentiallyDecayingReservoir> entry : samples.entrySet())
-        {
-            snapshots.put(entry.getKey(), entry.getValue().getSnapshot());
-        }
-
-        // We're going to weight the latency for each host against the worst one we see, to
-        // arrive at sort of a 'badness percentage' for them. First, find the worst for each:
-        HashMap<InetAddressAndPort, Double> newScores = new HashMap<>();
-        for (Map.Entry<InetAddressAndPort, Snapshot> entry : snapshots.entrySet())
-        {
-            double mean = entry.getValue().getMedian();
-            if (mean > maxLatency)
-                maxLatency = mean;
-        }
-        // now make another pass to do the weighting based on the maximums we found before
-        for (Map.Entry<InetAddressAndPort, Snapshot> entry : snapshots.entrySet())
-        {
-            double score = entry.getValue().getMedian() / maxLatency;
-            // finally, add the severity without any weighting, since hosts scale this relative to their own load and the size of the task causing the severity.
-            // "Severity" is basically a measure of compaction activity (CASSANDRA-3722).
-            if (USE_SEVERITY)
-                score += getSeverity(entry.getKey());
-            // lowest score (least amount of badness) wins.
-            newScores.put(entry.getKey(), score);
-        }
-        scores = newScores;*/
-        
-        
-        
-        /*starting of geo-distributed
         
         double score,lp,rs,rtt;
         double a=0.000115844;
         double b1=1.09079195;
         double b2=0.03516749;
-        
-        //prediction based replica selection starting
-      
-       rtt=lema;
+                   
+        rtt=lema;
         
         rs=Math.pow(qema, 3)*sema;
         
@@ -334,30 +289,22 @@ public class DynamicEndpointSnitch extends AbstractEndpointSnitch implements Lat
         lp=a+b1*rtt+b2*rs;
         
         score=lp+getSeverity(key);
-        //prediction based replica selection ending
-
-
-//c3 start
-      //  rtt=lema;
-        //rs=Math.pow(qema, 3)*sema;
-        //score=rtt-sema+rs;
-//c3 end
-        scores.put(key, score);
-      //  newScores.put(key,score);
-      //  scores=newScores;
+      
+        //scores.put(key, score);
+         newScores.put(key,score);
+         scores=newScores;
 
        //logger.info("Score is: "+score);*/
-       //ending of geo-distributed
+       
 
-
-        double score,lp;
+      /*  double score,lp;
         double a=0.000115844;
         double b1=0.03516749;
         double b2=1.09079195;
         lp=a+b1*qema+b2*sema;
         score=lp+getSeverity(key);
         scores.put(key, score);
-      // logger.info("Score is: "+score);
+      // logger.info("Score is: "+score);*/
     }
 
     private void reset()
