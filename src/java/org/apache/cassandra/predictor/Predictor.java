@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 public class Predictor {
 
 //	static DynamicEndpointSnitch de =new DynamicEndpointSnitch();
-	 private static final double ALPHA = 0.9;
+	 private static final double ALPHA = 0.8;
 	private static final ConcurrentHashMap<InetAddressAndPort,AtomicInteger> queuesize =new ConcurrentHashMap<>();
 	private static final HashMap<InetAddressAndPort,Long> servicetime = new HashMap<>();
 	private static final HashMap<InetAddressAndPort,Long> latency=new HashMap<>();
