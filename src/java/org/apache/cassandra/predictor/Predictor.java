@@ -109,7 +109,7 @@ public class Predictor {
 		
 		DynamicEndpointSnitch.updateScores(lema,qema,sema,key);
 		
-		/*File file =new File("data.txt");
+		File file =new File("data.txt");
 		FileWriter fr = null;
 		try
 		{
@@ -126,7 +126,7 @@ public class Predictor {
 			{
 				e.printStackTrace();
 			}
-		}*/
+		}
 	} 
 	public static void updateMetricesRemote(InetAddressAndPort key, long l,String tag)
 	{
@@ -179,7 +179,7 @@ public class Predictor {
 		
 		
 		
-		/*File file =new File("data.txt");
+		File file =new File("data.txt");
 		FileWriter fr = null;
 		try
 		{
@@ -196,7 +196,7 @@ public class Predictor {
 			{
 				e.printStackTrace();
 			}
-		}*/
+		}
 	}
 	
 public static void updateMetrices2(InetAddressAndPort key, long l, long stime, String tag)
